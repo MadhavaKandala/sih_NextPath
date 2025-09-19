@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextStep - Your Digital Career Mentor</title>
+    <link rel="stylesheet" href="enhanced-style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav__content">
+                <div class="nav__logo">
+                    <h2>🎯 NextStep</h2>
+                    <span class="nav__tagline">Your Digital Career Mentor</span>
+                </div>
+                <div class="nav__menu">
+                    <button class="nav__item active" data-page="home">Home</button>
+                    <button class="nav__item" data-page="quiz">Career Assessment</button>
+                    <button class="nav__item" data-page="careers">Explore Careers</button>
+                    <button class="nav__item" data-page="colleges">College Directory</button>
+                    <button class="nav__item" data-page="timeline">Timeline</button>
+                    <button class="nav__item" data-page="results">My Results</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Your Digital Mentor for Academic & Career Success</h1>
+                    <p class="hero__subtitle">Comprehensive career guidance for Indian students after Class 10 and 12. Discover your perfect career path from 250+ options across all streams.</p>
+                    
+                    <div class="hero__stats">
+                        <div class="stat">
+                            <span class="stat__number">93%</span>
+                            <span class="stat__text">of students know only 7 careers out of 250+ available options</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">85</span>
+                            <span class="stat__text">comprehensive assessment questions</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">250+</span>
+                            <span class="stat__text">career paths across all streams</span>
+                        </div>
+                    </div>
+
+                    <div class="hero__benefits">
+                        <div class="benefit">
+                            <div class="benefit__icon">🎯</div>
+                            <h3>Personalized Assessment</h3>
+                            <p>85-question comprehensive quiz covering aptitude, interests, personality, and practical considerations</p>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit__icon">🎓</div>
+                            <h3>Government College Directory</h3>
+                            <p>Complete database of nearby government colleges with courses, eligibility, and admission details</p>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit__icon">🚀</div>
+                            <h3>Career Pathway Mapping</h3>
+                            <p>Direct connection between courses and career opportunities with salary expectations and growth prospects</p>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit__icon">⏰</div>
+                            <h3>Timeline Tracker</h3>
+                            <p>Never miss admission deadlines, entrance exams, or scholarship applications with personalized reminders</p>
+                        </div>
+                    </div>
+
+                    <div class="hero__cta">
+                        <button class="btn btn--primary" onclick="startAssessment()">Start Your Career Assessment</button>
+                        <button class="btn btn--secondary" onclick="exploreCareers()">Explore Career Options</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="container">
+                <h2 class="section__title">Why Choose NextStep?</h2>
+                <div class="features__grid">
+                    <div class="feature">
+                        <h3>🔬 Science Stream</h3>
+                        <p>80+ careers including Engineering, Medical, Research, and emerging fields like AI, Data Science, Biotechnology</p>
+                        <ul>
+                            <li>Engineering (15+ specializations)</li>
+                            <li>Medical Sciences (20+ fields)</li>
+                            <li>Pure Sciences (15+ specializations)</li>
+                            <li>Emerging Technologies</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>💼 Commerce Stream</h3>
+                        <p>60+ careers in Finance, Management, Banking, and Digital Commerce with excellent growth prospects</p>
+                        <ul>
+                            <li>CA, CS, CMA</li>
+                            <li>Banking & Finance</li>
+                            <li>Business Management</li>
+                            <li>Digital Marketing</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>📚 Arts & Humanities</h3>
+                        <p>70+ careers from Creative Arts to Civil Services, including Law, Psychology, Journalism, and Design</p>
+                        <ul>
+                            <li>Civil Services (IAS/IPS)</li>
+                            <li>Law & Legal Studies</li>
+                            <li>Psychology & Counseling</li>
+                            <li>Creative Arts & Design</li>
+                        </ul>
+                    </div>
+                    <div class="feature">
+                        <h3>⚙️ Vocational & Technical</h3>
+                        <p>40+ skill-based career paths for quick employment with hands-on training and industry certification</p>
+                        <ul>
+                            <li>IT & Web Development</li>
+                            <li>Healthcare Technical</li>
+                            <li>Digital Marketing</li>
+                            <li>Skilled Trades</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Page -->
+    <section id="quiz" class="page">
+        <div class="container">
+            <div class="quiz__container">
+                <div class="quiz__header">
+                    <h1>Career Assessment</h1>
+                    <div class="progress__container">
+                        <div class="progress__bar">
+                            <div class="progress__fill" id="progressFill"></div>
+                        </div>
+                        <span class="progress__text" id="progressText">Question 1 of 85</span>
+                    </div>
+                </div>
+
+                <div class="quiz__content">
+                    <div id="sectionIntro" class="section__intro">
+                        <h2 id="sectionTitle">Section 1: Aptitude Assessment</h2>
+                        <p id="sectionDescription">Evaluate your core cognitive abilities and academic strengths</p>
+                        <button class="btn btn--primary" onclick="startSection()">Begin Section</button>
+                    </div>
+
+                    <div id="questionContainer" class="question__container" style="display: none;">
+                        <div class="question__content">
+                            <h3 id="questionText">Question will appear here</h3>
+                            <div id="answerOptions" class="answer__options">
+                                <!-- Answer options will be dynamically generated -->
+                            </div>
+                        </div>
+                        
+                        <div class="question__navigation">
+                            <button class="btn btn--secondary" id="prevBtn" onclick="previousQuestion()">Previous</button>
+                            <button class="btn btn--primary" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
+                        </div>
+                    </div>
+
+                    <div id="sectionComplete" class="section__complete" style="display: none;">
+                        <h2>Section Complete!</h2>
+                        <p>Great job! You've completed this section of the assessment.</p>
+                        <button class="btn btn--primary" onclick="nextSection()">Continue to Next Section</button>
+                    </div>
+                </div>
+
+                <div class="quiz__sidebar">
+                    <div class="section__progress">
+                        <h3>Assessment Progress</h3>
+                        <div class="sections__list">
+                            <div class="section__item active" data-section="0">
+                                <span class="section__number">1</span>
+                                <span class="section__name">Aptitude Assessment</span>
+                                <span class="section__status">In Progress</span>
+                            </div>
+                            <div class="section__item" data-section="1">
+                                <span class="section__number">2</span>
+                                <span class="section__name">Interest Assessment</span>
+                                <span class="section__status">Not Started</span>
+                            </div>
+                            <div class="section__item" data-section="2">
+                                <span class="section__number">3</span>
+                                <span class="section__name">Personality Assessment</span>
+                                <span class="section__status">Not Started</span>
+                            </div>
+                            <div class="section__item" data-section="3">
+                                <span class="section__number">4</span>
+                                <span class="section__name">Stream-Specific Assessment</span>
+                                <span class="section__status">Not Started</span>
+                            </div>
+                            <div class="section__item" data-section="4">
+                                <span class="section__number">5</span>
+                                <span class="section__name">Practical Considerations</span>
+                                <span class="section__status">Not Started</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Page -->
+    <section id="results" class="page">
+        <div class="container">
+            <div class="results__container" id="resultsContainer">
+                <h1>Your Personalized Career Report</h1>
+                <p class="results__intro">Based on your comprehensive assessment, here are your personalized recommendations:</p>
+                
+                <div class="results__summary">
+                    <div class="aptitude__scores">
+                        <h2>Aptitude Profile</h2>
+                        <div class="score__grid">
+                            <div class="score__item">
+                                <span class="score__label">Mathematical Aptitude</span>
+                                <div class="score__bar">
+                                    <div class="score__fill" data-score="85"></div>
+                                </div>
+                                <span class="score__value">85%</span>
+                            </div>
+                            <div class="score__item">
+                                <span class="score__label">Logical Reasoning</span>
+                                <div class="score__bar">
+                                    <div class="score__fill" data-score="78"></div>
+                                </div>
+                                <span class="score__value">78%</span>
+                            </div>
+                            <div class="score__item">
+                                <span class="score__label">Language & Communication</span>
+                                <div class="score__bar">
+                                    <div class="score__fill" data-score="72"></div>
+                                </div>
+                                <span class="score__value">72%</span>
+                            </div>
+                            <div class="score__item">
+                                <span class="score__label">Scientific Thinking</span>
+                                <div class="score__bar">
+                                    <div class="score__fill" data-score="88"></div>
+                                </div>
+                                <span class="score__value">88%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stream__recommendations">
+                        <h2>Stream Recommendations</h2>
+                        <div class="recommendations__grid">
+                            <div class="recommendation primary">
+                                <h3>🔬 Science Stream</h3>
+                                <div class="match__percentage">92% Match</div>
+                                <p>Excellent fit based on your strong mathematical and scientific aptitude</p>
+                                <ul>
+                                    <li>Top career: Computer Science Engineering</li>
+                                    <li>Alternative: Biotechnology</li>
+                                    <li>Backup: Applied Mathematics</li>
+                                </ul>
+                            </div>
+                            <div class="recommendation secondary">
+                                <h3>💼 Commerce Stream</h3>
+                                <div class="match__percentage">68% Match</div>
+                                <p>Good alternative with your logical reasoning skills</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="career__pathways">
+                    <h2>Recommended Career Paths</h2>
+                    <div class="careers__grid">
+                        <div class="career__card">
+                            <h3>Software Engineer</h3>
+                            <div class="career__details">
+                                <span class="salary">₹5-25 LPA</span>
+                                <span class="growth">Excellent Growth</span>
+                            </div>
+                            <p>Design and develop software applications using programming languages and frameworks</p>
+                            <div class="career__skills">
+                                <span class="skill">Programming</span>
+                                <span class="skill">Problem Solving</span>
+                                <span class="skill">System Design</span>
+                            </div>
+                            <div class="career__path">
+                                <strong>Path:</strong> B.Tech CSE → Software Engineer → Senior Developer → Tech Lead
+                            </div>
+                        </div>
+                        
+                        <div class="career__card">
+                            <h3>Data Scientist</h3>
+                            <div class="career__details">
+                                <span class="salary">₹8-30 LPA</span>
+                                <span class="growth">Excellent Growth</span>
+                            </div>
+                            <p>Analyze complex data to help organizations make informed business decisions</p>
+                            <div class="career__skills">
+                                <span class="skill">Statistics</span>
+                                <span class="skill">Machine Learning</span>
+                                <span class="skill">Python/R</span>
+                            </div>
+                            <div class="career__path">
+                                <strong>Path:</strong> B.Sc Statistics/B.Tech CSE → Data Analyst → Data Scientist → Chief Data Officer
+                            </div>
+                        </div>
+                        
+                        <div class="career__card">
+                            <h3>Mechanical Engineer</h3>
+                            <div class="career__details">
+                                <span class="salary">₹3.5-12 LPA</span>
+                                <span class="growth">Good Growth</span>
+                            </div>
+                            <p>Design, develop, and test mechanical devices and systems</p>
+                            <div class="career__skills">
+                                <span class="skill">CAD Design</span>
+                                <span class="skill">Thermodynamics</span>
+                                <span class="skill">Materials Science</span>
+                            </div>
+                            <div class="career__path">
+                                <strong>Path:</strong> B.Tech Mechanical → Design Engineer → Project Manager → Chief Engineer
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action__plan">
+                    <h2>Your Action Plan</h2>
+                    <div class="timeline__steps">
+                        <div class="step">
+                            <div class="step__number">1</div>
+                            <div class="step__content">
+                                <h3>Immediate (Next 2 weeks)</h3>
+                                <ul>
+                                    <li>Research recommended colleges for Computer Science</li>
+                                    <li>Start preparing for JEE Main entrance exam</li>
+                                    <li>Explore programming basics online</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step__number">2</div>
+                            <div class="step__content">
+                                <h3>Short Term (Next 3 months)</h3>
+                                <ul>
+                                    <li>Complete JEE Main registration</li>
+                                    <li>Visit recommended colleges</li>
+                                    <li>Complete online programming course</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step__number">3</div>
+                            <div class="step__content">
+                                <h3>Long Term (Next 6-12 months)</h3>
+                                <ul>
+                                    <li>Appear for entrance exams</li>
+                                    <li>Apply for college admissions</li>
+                                    <li>Secure admission in preferred college</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results__actions">
+                    <button class="btn btn--primary" onclick="downloadReport()">Download Full Report</button>
+                    <button class="btn btn--secondary" onclick="exploreColleges()">Find Colleges</button>
+                    <button class="btn btn--secondary" onclick="retakeAssessment()">Retake Assessment</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Exploration Page -->
+    <section id="careers" class="page">
+        <div class="container">
+            <div class="careers__container">
+                <div class="careers__header">
+                    <h1>Explore Career Options</h1>
+                    <p class="careers__intro">Discover from 250+ career paths across all streams. Filter by your interests and preferences.</p>
+                    
+                    <div class="careers__stats">
+                        <div class="stat__item">
+                            <span class="stat__number" id="totalCareers">250+</span>
+                            <span class="stat__label">Career Options</span>
+                        </div>
+                        <div class="stat__item">
+                            <span class="stat__number" id="filteredCareers">250+</span>
+                            <span class="stat__label">Showing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="careers__controls">
+                    <div class="search__section">
+                        <div class="search__box">
+                            <input type="text" placeholder="Search careers by name, field, or skills..." id="careerSearch" class="form-control">
+                            <button class="search__btn btn btn--primary" onclick="searchCareers()">🔍</button>
+                        </div>
+                        <div class="quick__filters">
+                            <button class="quick__filter active btn btn--small" data-stream="all">All</button>
+                            <button class="quick__filter btn btn--small" data-stream="science">Science</button>
+                            <button class="quick__filter btn btn--small" data-stream="commerce">Commerce</button>
+                            <button class="quick__filter btn btn--small" data-stream="arts">Arts</button>
+                            <button class="quick__filter btn btn--small" data-stream="vocational">Vocational</button>
+                        </div>
+                    </div>
+                    
+                    <div class="careers__filters">
+                        <div class="filter__group">
+                            <label>Stream:</label>
+                            <select id="streamFilter">
+                                <option value="all">All Streams</option>
+                                <option value="science">Science</option>
+                                <option value="commerce">Commerce</option>
+                                <option value="arts">Arts & Humanities</option>
+                                <option value="vocational">Vocational & Technical</option>
+                            </select>
+                        </div>
+                        <div class="filter__group">
+                            <label>Salary Range:</label>
+                            <select id="salaryFilter">
+                                <option value="all">All Ranges</option>
+                                <option value="low">₹2-6 LPA</option>
+                                <option value="medium">₹6-15 LPA</option>
+                                <option value="high">₹15+ LPA</option>
+                            </select>
+                        </div>
+                        <div class="filter__group">
+                            <label>Growth Potential:</label>
+                            <select id="growthFilter">
+                                <option value="all">All Levels</option>
+                                <option value="excellent">Excellent</option>
+                                <option value="very_good">Very Good</option>
+                                <option value="good">Good</option>
+                            </select>
+                        </div>
+                        <div class="filter__group">
+                            <label>Sort By:</label>
+                            <select id="sortFilter">
+                                <option value="name">Name (A-Z)</option>
+                                <option value="salary">Salary (High to Low)</option>
+                                <option value="growth">Growth Potential</option>
+                                <option value="stream">Stream</option>
+                            </select>
+                        </div>
+                        <div class="filter__actions">
+                            <button class="btn btn--secondary" onclick="clearFilters()">Clear Filters</button>
+                            <button class="btn btn--primary" onclick="applyCareerFilters()">Apply Filters</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="careers__grid" id="careersGrid">
+                    <!-- Career cards will be dynamically populated -->
+                </div>
+                
+                <div class="careers__pagination" id="careersPagination" style="display: none;">
+                    <button class="pagination__btn" id="prevPage" onclick="changePage(-1)">← Previous</button>
+                    <span class="pagination__info" id="pageInfo">Page 1 of 1</span>
+                    <button class="pagination__btn" id="nextPage" onclick="changePage(1)">Next →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colleges Page -->
+    <section id="colleges" class="page">
+        <div class="container">
+            <div class="colleges__container">
+                <div class="colleges__header">
+                    <h1>Government College Directory</h1>
+                    <p class="colleges__intro">Find the best government colleges in your region with complete admission details.</p>
+                    
+                    <div class="colleges__stats">
+                        <div class="stat__item">
+                            <span class="stat__number" id="totalColleges">5</span>
+                            <span class="stat__label">Colleges Listed</span>
+                        </div>
+                        <div class="stat__item">
+                            <span class="stat__number" id="filteredColleges">5</span>
+                            <span class="stat__label">Showing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="colleges__controls">
+                    <div class="search__section">
+                        <div class="search__box">
+                            <input type="text" placeholder="Search colleges by name, location, or courses..." id="collegeSearch" class="form-control">
+                            <button class="search__btn btn btn--primary" onclick="searchColleges()">🔍</button>
+                        </div>
+                        <div class="quick__filters">
+                            <button class="quick__filter active btn btn--small" data-location="all">All Locations</button>
+                            <button class="quick__filter btn btn--small" data-location="jammu">Jammu</button>
+                            <button class="quick__filter btn btn--small" data-location="srinagar">Srinagar</button>
+                            <button class="quick__filter btn btn--small" data-location="katra">Katra</button>
+                        </div>
+                    </div>
+                    
+                    <div class="colleges__filters">
+                        <div class="filter__group">
+                            <label>Location:</label>
+                            <select id="locationFilter">
+                                <option value="all">All Locations</option>
+                                <option value="jammu">Jammu</option>
+                                <option value="srinagar">Srinagar</option>
+                                <option value="katra">Katra</option>
+                            </select>
+                        </div>
+                        <div class="filter__group">
+                            <label>Course Type:</label>
+                            <select id="courseFilter">
+                                <option value="all">All Courses</option>
+                                <option value="btech">B.Tech</option>
+                                <option value="bsc">B.Sc</option>
+                                <option value="bcom">B.Com</option>
+                                <option value="ba">B.A</option>
+                                <option value="bba">BBA</option>
+                                <option value="bca">BCA</option>
+                                <option value="mba">MBA</option>
+                            </select>
+                        </div>
+                        <div class="filter__group">
+                            <label>College Type:</label>
+                            <select id="typeFilter">
+                                <option value="all">All Types</option>
+                                <option value="government">Government</option>
+                                <option value="deemed">Deemed University</option>
+                                <option value="state">State University</option>
+                            </select>
+                        </div>
+                        <div class="filter__group">
+                            <label>Sort By:</label>
+                            <select id="collegeSortFilter">
+                                <option value="name">Name (A-Z)</option>
+                                <option value="rating">Rating (High to Low)</option>
+                                <option value="fees">Fees (Low to High)</option>
+                                <option value="location">Location</option>
+                            </select>
+                        </div>
+                        <div class="filter__actions">
+                            <button class="btn btn--secondary" onclick="clearCollegeFilters()">Clear Filters</button>
+                            <button class="btn btn--primary" onclick="applyCollegeFilters()">Apply Filters</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="colleges__grid" id="collegesGrid">
+                    <!-- College cards will be populated -->
+                </div>
+                
+                <div class="colleges__pagination" id="collegesPagination" style="display: none;">
+                    <button class="pagination__btn" id="collegePrevPage" onclick="changeCollegePage(-1)">← Previous</button>
+                    <span class="pagination__info" id="collegePageInfo">Page 1 of 1</span>
+                    <button class="pagination__btn" id="collegeNextPage" onclick="changeCollegePage(1)">Next →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Page -->
+    <section id="timeline" class="page">
+        <div class="container">
+            <div class="timeline__container">
+                <h1>Academic Timeline & Deadlines</h1>
+                <p class="timeline__intro">Never miss important dates for admissions, exams, and scholarships.</p>
+                
+                <div class="timeline__content">
+                    <div class="timeline__item">
+                        <div class="timeline__date">Nov 15, 2025</div>
+                        <div class="timeline__event">
+                            <h3>CBSE Class 12 Registration Deadline</h3>
+                            <p>Last date for Class 12 board exam registration</p>
+                            <span class="timeline__category registration">Registration</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline__item">
+                        <div class="timeline__date">Dec 1, 2025</div>
+                        <div class="timeline__event">
+                            <h3>JEE Main Registration Opens</h3>
+                            <p>Begin your engineering entrance exam journey</p>
+                            <span class="timeline__category exam">Entrance Exam</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline__item">
+                        <div class="timeline__date">Dec 15, 2025</div>
+                        <div class="timeline__event">
+                            <h3>NEET Registration Opens</h3>
+                            <p>Medical entrance exam registration begins</p>
+                            <span class="timeline__category exam">Entrance Exam</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline__item">
+                        <div class="timeline__date">Jan 15, 2026</div>
+                        <div class="timeline__event">
+                            <h3>CUET Registration</h3>
+                            <p>Common University Entrance Test registration</p>
+                            <span class="timeline__category registration">Registration</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline__item">
+                        <div class="timeline__date">Mar 15, 2026</div>
+                        <div class="timeline__event">
+                            <h3>Scholarship Applications</h3>
+                            <p>Various government and private scholarship deadlines</p>
+                            <span class="timeline__category scholarship">Scholarship</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="enhanced-app.js"></script>
+</body>
+</html>
